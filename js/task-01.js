@@ -1,13 +1,14 @@
-console.log(document);
-console.dir(document);
+const liElem = document.querySelector("li.item");
+console.log(liElem)
 
-const liElem = document.querySelector(".item li");
-console.log(liElem);
-
-const liElemList = document.querySelectorAll(".item li");
+const liElemList = document.querySelectorAll("li.item");
 console.log(liElemList)
 console.log(`Number of categories:`, liElemList.length);
-console.log(`One of main:`, liElemList[4]);
+
+liElemList.forEach(element => {
+    console.log(`Category:`, element.firstElementChild.textContent);
+    console.log(`Elements:`, element.lastElementChild.children.length); 
+});
 
 
 

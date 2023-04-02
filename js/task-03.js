@@ -12,3 +12,42 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+// вариант 1
+
+const ulEl = document.querySelector(".gallery");
+
+  const createElement = images.map((element) => {
+
+const liEl = document.createElement(`li`);
+
+const imageEl = document.createElement(`img`);
+imageEl.src = element.url;
+imageEl.alt = element.alt;
+liEl.appendChild(imageEl);
+
+return liEl;
+
+});
+
+ulEl.append(...createElement);
+
+// вариант 2
+
+const createElementImageMarkup = ({url, alt}) => {
+
+  return `<li><img src="${url}" alt="${alt}"></li>`;
+  };
+
+  const createGallery = images.map(createElementImageMarkup).join('');
+
+ulEl.insertAdjacentHTML(`beforeend`, createGallery);
+  
+
+
+
+
+
+
+
+

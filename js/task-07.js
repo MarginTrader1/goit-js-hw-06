@@ -1,19 +1,15 @@
-const inputEl = document.querySelector(`#font-size-control`);
-const spanEl = document.querySelector(`#text`);
+const inputElement = document.querySelector(`#font-size-control`);
+const spanElement = document.querySelector(`#text`);
 
+console.log(inputElement);
+console.log(spanElement);
 
-console.log(inputEl);
-console.log(spanEl);
+inputElement.addEventListener(`input`, onInput);
 
-inputEl.addEventListener(`input`, onInput)
+function onInput(event) {
+   spanElement.classList.add(`item`);
 
-function onInput (event) {
-    console.log('Это инпут');
-    spanEl.classList.add(`item`);
-    
-    console.log(event.currentTarget.value);
-    spanEl.style.fontSize = `${event.currentTarget.value}px`;
-    console.log(spanEl.style.fontSize);
-
+   console.log(event.currentTarget.value);
+   spanElement.style.fontSize = `${event.currentTarget.value}px`;
+   console.log(spanElement.style.fontSize);
 }
-

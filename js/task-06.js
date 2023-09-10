@@ -1,6 +1,4 @@
 const inputEl = document.querySelector(`input`);
-console.log(inputEl.value);
-
 inputEl.addEventListener(`blur`, onInputBlur);
 
 function onInputBlur(event) {
@@ -8,6 +6,7 @@ function onInputBlur(event) {
    console.log(event.currentTarget.value.length);
    console.log(event.currentTarget.value);
 
+   /* проверки на разные вводы*/ 
    if (
       event.currentTarget.value.length !== Number(inputEl.dataset.length) &&
       inputEl.classList.length === 0

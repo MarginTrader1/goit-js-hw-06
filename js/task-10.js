@@ -23,10 +23,11 @@ createBtn.addEventListener("click", () => {
 
 // вешаем слушатель на кнопку Destroy
 destroyBtn.addEventListener("click", () => {
+   //по клику все содержимое тега меняется на пустую строку
    divBoxElement.innerHTML = "";
 });
 
-//функция соpдания разметки через цикл --> возвращает массив 
+//функция соpдания разметки через цикл --> возвращает массив
 function createBoxes(amount) {
    let markupArray = [];
 

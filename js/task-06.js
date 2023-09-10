@@ -8,10 +8,30 @@ function onInputBlur(event) {
    console.log(event.currentTarget.value.length);
    console.log(event.currentTarget.value);
 
-   if (event.currentTarget.value.length === Number(inputEl.dataset.length)) {
-      inputEl.classList.add(`valid`);
+   if (
+      event.currentTarget.value.length !== Number(inputEl.dataset.length) &&
+      inputEl.classList.length === 0
+   ) {
+      inputEl.classList.add(`invalid`);
       return;
    }
-   inputEl.classList.add(`invalid`);
+
+   if (
+      event.currentTarget.value.length !== Number(inputEl.dataset.length) &&
+      inputEl.classList.length !== 0
+   ) {
+      inputEl.classList.replace(`valid`, `invalid`);
+      return;
+   }
+
+   if (
+      event.currentTarget.value.length === Number(inputEl.dataset.length) &&
+      inputEl.classList.length !== 0
+   ) {
+      inputEl.classList.replace(`invalid`, `valid`);
+      return;
+   }
+
+   inputEl.classList.add(`valid`);
    return;
 }

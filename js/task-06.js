@@ -2,31 +2,27 @@ const inputEl = document.querySelector(`input`);
 inputEl.addEventListener(`blur`, onInputBlur);
 
 function onInputBlur(event) {
-   console.log(inputEl.dataset.length);
-   console.log(event.currentTarget.value.length);
-   console.log(event.currentTarget.value);
+   //необходимая длинна слова
+   const fixWordLength = Number(inputEl.dataset.length);
 
-   /* проверки на разные вводы*/ 
-   if (
-      event.currentTarget.value.length !== Number(inputEl.dataset.length) &&
-      inputEl.classList.length === 0
-   ) {
+   //длинна введенного слова
+   const inputWordLength = event.currentTarget.value.length;
+
+   //количество классов
+   const classList = inputEl.classList.length;
+
+   /* проверки на разные вводы и замена класса*/
+   if (inputWordLength !== fixWordLength && classList === 0) {
       inputEl.classList.add(`invalid`);
       return;
    }
 
-   if (
-      event.currentTarget.value.length !== Number(inputEl.dataset.length) &&
-      inputEl.classList.length !== 0
-   ) {
+   if (inputWordLength !== fixWordLength && classList !== 0) {
       inputEl.classList.replace(`valid`, `invalid`);
       return;
    }
 
-   if (
-      event.currentTarget.value.length === Number(inputEl.dataset.length) &&
-      inputEl.classList.length !== 0
-   ) {
+   if (inputWordLength === fixWordLength && classList !== 0) {
       inputEl.classList.replace(`invalid`, `valid`);
       return;
    }
